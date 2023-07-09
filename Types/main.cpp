@@ -1,6 +1,7 @@
 #include "pair.hpp"
 #include "matrix.hpp"
 #include "vector.hpp"
+#include "date.hpp"
 
 int main(){
     // Pair
@@ -56,4 +57,9 @@ int main(){
     std::cout<< "V_A + V_B:\n"<<V_A+V_B<<"\n";
     std::cout<< "V_A - V_B:\n"<<V_A-V_B<<"\n";
 
+    //Date
+    Date date{23, 12, 2021};
+    Date date2{Date::random()};
+
+    std::cout<<date<<'\n'<<date2<<"\nThe difference in the number of days between 2 dates: "<<date-date2<<'\n';
 }
