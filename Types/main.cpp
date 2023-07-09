@@ -1,6 +1,6 @@
 #include "pair.hpp"
 #include "matrix.hpp"
-#include <iomanip>
+#include "vector.hpp"
 
 int main(){
     // Pair
@@ -40,5 +40,20 @@ int main(){
     std::cout << "D:\n" << D << '\n';
     std::cout << "D * 10:\n" << D*10 << '\n';
     std::cout << "Transpose of D:\n" << D.transpose() << '\n';
-    std::cout << "Inverse of D:\n" << D.inverse() << '\n';
+    // std::cout << "Inverse of D:\n" << D.inverse() << '\n';
+
+    // Vector
+    Vector<double> V_A(3);
+    V_A(0) = 2.0;
+    V_A(1) = 4.0;
+    V_A(2) = 3.0;
+
+    Vector<double> V_B(3);
+    V_B(0) = 5.0;
+    V_B(1) = 2.0;
+    V_B(2) = 6.0;
+
+    std::cout<< "V_A + V_B:\n"<<V_A+V_B<<"\n";
+    std::cout<< "V_A - V_B:\n"<<V_A-V_B<<"\n";
+
 }
