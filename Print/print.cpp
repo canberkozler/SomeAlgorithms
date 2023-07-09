@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<string>
+#include"spaceDeleter.h"
 
 template<typename T, typename U>
 std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p){
@@ -24,6 +25,23 @@ void print(InIter beg, InIter end, const char* p = " ", std::ostream& os = std::
 }
 
 int main(){
-    std::vector<std::pair<std::string, int>> myvec{ {"ali", 23}, {"can", 22}, {"berk", 13}};
-    print(myvec.begin(), myvec.end(),"\n");
+    {
+        std::vector<std::pair<std::string, int>> myvec{{"ali", 23}, {"can", 22}, {"berk", 13}};
+        print(myvec.begin(), myvec.end(), "\n");
+    }
+
+    // { // TODO: fix locale err.
+    //     std::ostream os{std::cout.rdbuf()};
+    //     os.imbue(std::locale{""});
+    //     os<<87555111;
+    // }
+
+    {
+        std::string str;
+        std::cout<<"Type a sentence.\n";
+        getline(std::cin, str);
+        std::cout<<"| " << str <<" |\n";
+        extra_space_deleter(str);
+        std::cout<<"| " << str <<" |\n";
+    }
 }
