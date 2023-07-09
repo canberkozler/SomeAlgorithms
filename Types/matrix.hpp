@@ -131,19 +131,19 @@ class Matrix{
             return result;
         }
 
-        T& operator()(int rw, int cl) {
+        T& operator()(std::size_t rw, std::size_t cl) {
             return data[rw][cl];
         }
 
-        const T& operator()(int rw, int cl) const {
+        const T& operator()(std::size_t rw, std::size_t cl) const {
             return data[rw][cl];
         }
 
-        std::vector<T>& operator[](int row) {
+        std::vector<T>& operator[](std::size_t row) {
             return data[row];
         }
 
-        const std::vector<T>& operator[](int row) const {
+        const std::vector<T>& operator[](std::size_t row) const {
             return data[row];
         }
 
