@@ -3,7 +3,7 @@
 #include "vector.hpp"
 #include "date.hpp"
 #include "AbstractDataTypes/stack.hpp"
-
+#include "AbstractDataTypes/queue.hpp"
 
 int main(){
     // Pair
@@ -79,4 +79,29 @@ int main(){
     std::cout<<istack.top()<<"\n";
 
     std::cout<<std::boolalpha << istack.is_empty();
+
+    // Queue
+
+    Queue<double> dque;    
+
+    dque.push(5.1);
+    dque.push(22.3);
+    dque.push(52.2);
+    dque.push(13.6);
+
+    std::cout<< "Queue Size: " << dque.size()<<"\n"
+             << "First Elem in Queue: " <<dque.front()<<"\n"
+             << "Last Elem in Queue: " <<dque.back()<<"\n";
+
+    dque.pop();
+    std::cout<< "Last Elem in Queue: " <<dque.back()<<"\n";
+
+    std::deque<double> d{124567.7, 88322.5, 23462.0};
+    Queue<double> tmp_dq(d);
+    dque.swap(tmp_dq);
+    std::cout<< "\nAfter Queue swap:\n";
+    while(!dque.is_empty()){
+        std::cout<< dque.back()<<"\n";
+        dque.pop();
+    }
 }
