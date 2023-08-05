@@ -85,6 +85,32 @@ public:
         swap(c, other.c);
     }
 
+    bool operator<(const Stack& other)const{
+        return c < other.c;
+    }
+    bool operator>(const Stack& other)const{
+        return c > other.c;
+    }
+
+    friend bool operator<=(const Stack& lh,const Stack& rh){
+        return !(lh > rh);
+    }
+    friend bool operator>=(const Stack& lh,const Stack& rh){
+        return !(lh < rh);
+    }
+
+    bool operator==(const Stack& other) const {
+        return c == other.c;
+    }
+
+    friend bool operator!=(const Stack& lh,const Stack& rh){
+        return !(lh == rh);
+    }
+
+    bool operator!() const {
+        return is_empty();
+    }
+
 protected:
     C c;
 };
