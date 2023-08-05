@@ -71,7 +71,7 @@ public:
         c.pop_back();
     }
 
-    std::size_t size()const{
+    typename C::size_type size()const{
         return c.size();
     }
 
