@@ -9,6 +9,8 @@ template<typename T, typename C = std::deque<T>>
 class Stack{
 public:
     Stack() = default;
+    ~Stack() = default;
+    
     explicit Stack(const C& dq) : c(dq){}
     explicit Stack(C&& ct) : c(std::move(ct)) {}
 
@@ -16,7 +18,22 @@ public:
     Stack(InputIt first, InputIt last) : c(first, last) {}
 
     Stack(const Stack& other) : c(other.c) {}
+    Stack& operator=(const Stack& other){
+        //  no need to check for self-assignment (other than performance)
+        auto tmp = other;
+        std::swap(*this, tmp);
+        return *this;
+    }
+
     Stack(Stack&& other) noexcept : c(std::move(other.c)) {}
+    Stack& operator=(Stack&& other){
+        if(this == &other) 
+            return *this;
+
+        c = std::move(other.c);
+        return *this;
+    }
+    
     
     /*
     !TODO: Implement Constructor to adjust Allocator
