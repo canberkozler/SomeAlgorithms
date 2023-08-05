@@ -2,6 +2,8 @@
 #include "matrix.hpp"
 #include "vector.hpp"
 #include "date.hpp"
+#include "AbstractDataTypes/stack.hpp"
+
 
 int main(){
     // Pair
@@ -62,4 +64,19 @@ int main(){
     Date date2{Date::random()};
 
     std::cout<<date<<'\n'<<date2<<"\nThe difference in the number of days between 2 dates: "<<date-date2<<'\n';
+
+    //***** ABSTRACT DATA TYPES *****//
+    // Stack
+    Stack<int> istack;
+    int i{15};
+    istack.emplace(22);
+    istack.push(i);
+
+    std::cout<<istack.top()<<"\n";
+
+    istack.pop();
+
+    std::cout<<istack.top()<<"\n";
+
+    std::cout<<std::boolalpha << istack.is_empty();
 }
