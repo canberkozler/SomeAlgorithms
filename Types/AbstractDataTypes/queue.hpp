@@ -98,6 +98,32 @@ public:
         swap(c, other.c);
     }
 
+    bool operator<(const Queue& other)const{
+        return c < other.c;
+    }
+    bool operator>(const Queue& other)const{
+        return c > other.c;
+    }
+
+    friend bool operator<=(const Queue& lh,const Queue& rh){
+        return !(lh > rh);
+    }
+    friend bool operator>=(const Queue& lh,const Queue& rh){
+        return !(lh < rh);
+    }
+
+    bool operator==(const Queue& other) const {
+        return c == other.c;
+    }
+
+    friend bool operator!=(const Queue& lh,const Queue& rh){
+        return !(lh == rh);
+    }
+
+    bool operator!() const {
+        return is_empty();
+    }
+
 protected:
     C c;
 };

@@ -89,6 +89,9 @@ int main(){
     dque.push(52.2);
     dque.push(13.6);
 
+    std::cout<< "dque is empty: " << (!dque)<<"\n";
+    std::cout<< "dque is empty: " << (dque.is_empty())<<"\n";
+
     std::cout<< "Queue Size: " << dque.size()<<"\n"
              << "First Elem in Queue: " <<dque.front()<<"\n"
              << "Last Elem in Queue: " <<dque.back()<<"\n";
@@ -98,6 +101,8 @@ int main(){
 
     std::deque<double> d{124567.7, 88322.5, 23462.0};
     Queue<double> tmp_dq(d);
+    std::cout<< "dque is equals to tmp_dq: " << (dque == tmp_dq)<<"\n";
+    
     dque.swap(tmp_dq);
     std::cout<< "\nAfter Queue swap:\n";
     while(!dque.is_empty()){
