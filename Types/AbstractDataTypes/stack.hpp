@@ -79,6 +79,12 @@ public:
         return c.empty();
     }
 
+    void swap(Stack& other) noexcept(std::is_nothrow_swappable_v<C>) // noexcept(noexcept(swap(c, other.c))) // until c++17
+    {
+        using std::swap;
+        swap(c, other.c);
+    }
+
 protected:
     C c;
 };
