@@ -4,6 +4,8 @@
 #include "date.hpp"
 #include "AbstractDataTypes/stack.hpp"
 #include "AbstractDataTypes/queue.hpp"
+#include "AbstractDataTypes/priority_queue.hpp"
+#include <random>
 
 int main(){
     // Pair
@@ -67,6 +69,7 @@ int main(){
 
     //***** ABSTRACT DATA TYPES *****//
     // Stack
+    std::cout <<"\n--------- Stack ----------\n\n";
     Stack<int> istack;
     int i{15};
     istack.emplace(22);
@@ -78,10 +81,10 @@ int main(){
 
     std::cout<<istack.top()<<"\n";
 
-    std::cout<<std::boolalpha << istack.is_empty();
+    std::cout<<std::boolalpha << istack.is_empty() << "\n";
 
     // Queue
-
+    std::cout <<"\n--------- Queue ----------\n\n";
     Queue<double> dque;    
 
     dque.push(5.1);
@@ -109,4 +112,31 @@ int main(){
         std::cout<< dque.back()<<"\n";
         dque.pop();
     }
+
+    // Priority Queue
+    std::cout <<"\n--------- Priority Queue ----------\n\n";
+    std::mt19937 eng{std::random_device{}()};
+    std::uniform_int_distribution<int> dist;
+
+    Priority_Queue<long> max_que;
+	for (int i = 0; i < 20; ++i)
+		max_que.push(dist(eng) % 10000);
+
+    std::cout <<"Before pop max elem:\n";
+    for (auto lval: max_que.get_container())
+		std::cout << lval << " ";
+    std::cout <<"\n";
+
+    std::cout<< "Max Elem: " << max_que.top()<<"\n";
+
+    max_que.pop();
+
+    std::cout <<"After pop max elem:\n";
+    for (auto lval: max_que.get_container())
+		std::cout << lval << " ";
+    std::cout <<"\n\n";
+
+    std::cout <<"Sort Container:\n";
+    for (auto lval: max_que.get_container_sorted())
+		std::cout << lval << " ";
 }
