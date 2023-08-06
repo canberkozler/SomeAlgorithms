@@ -10,7 +10,7 @@ template<typename T, typename C = std::deque<T>>
 class Queue{
 public:
     Queue() = default;
-    ~Queue()= default;\
+    ~Queue()= default;
 
     explicit Queue(const C& dq) : c(dq){}
     explicit Queue(C&& ct) : c(std::move(ct)) {}
