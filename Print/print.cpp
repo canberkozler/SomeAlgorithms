@@ -24,6 +24,18 @@ void print(InIter beg, InIter end, const char* p = " ", std::ostream& os = std::
     os<< '\n';
 }
 
+// User defined literal
+void operator"" _print(const char* str, std::size_t size)
+{
+    std::cout << str << '\n';
+}
+
+// User defined literal
+void operator"" _print(long double ld)
+{
+    std::cout << ld << '\n';
+}
+
 int main(){
     {
         std::vector<std::pair<std::string, int>> myvec{{"ali", 23}, {"can", 22}, {"berk", 13}};
@@ -43,5 +55,11 @@ int main(){
         std::cout<<"| " << str <<" |\n";
         extra_space_deleter(str);
         std::cout<<"| " << str <<" |\n";
+    }
+
+    {
+        "Hi, Github!"_print;
+
+        88.9_print;
     }
 }
