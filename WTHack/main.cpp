@@ -5,6 +5,7 @@
 #include "ostreamIterator.h"
 #include <random>
 #include <chrono>
+#include "summer.h"
 
 int main()
 {
@@ -46,5 +47,13 @@ int main()
 		std::mt19937 eng{std::random_device{}()};
 
 		std::generate_n(OstreamIterator<int>{std::cout}, 20, eng); // print 20 number randomly into standard output stream.
+
+		std::cout<<"\n";
+	}
+	
+	{// Summer
+
+		std::cout <<"Sum of 3 and 2: " <<sum(3, 2) << "\n";
+		std::cout <<"Sum of numbers(3.14159, 2.71828, 232.23, 11, 233.22): " << sum(3.14159, 2.71828, 232.23, 11, 233.22) << "\n";
 	}
 }
