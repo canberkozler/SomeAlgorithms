@@ -1,11 +1,13 @@
 #include <iostream>
-#include "backinserter.h"
 #include <algorithm>
 #include <vector>
-#include "ostreamIterator.h"
 #include <random>
 #include <chrono>
+
+#include "backinserter.h"
+#include "ostreamIterator.h"
 #include "summer.h"
+#include "counter.h"
 
 int main()
 {
@@ -56,5 +58,9 @@ int main()
 		std::cout <<"Sum of numbers(3.14159, 2.71828, 232.23, 11, 233.22): " << sum(3.14159, 2.71828, 232.23, 11, 233.22) << "\n";
 	
 		std::cout << "Sum of numbers(10.77, 23. ,22.24, 34.52, 76.35): " << summer(10.77, 23. ,22.24, 34.52, 76.35) << "\n";
+	}
+
+	{
+		Count<15>();
 	}
 }
