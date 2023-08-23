@@ -18,28 +18,6 @@ using False_Type = Integral_Constant<bool, false>;
 template <bool B>
 using Bool_Constant = Integral_Constant<bool, B>;  //C++ 17
 
-// Implementation of is_const
-template<typename T> 
-struct Is_Const : True_Type{};
-
-template<typename T> 
-struct Is_Const<const T> : False_Type{};
-
-// Helper variable template
-template <typename T>
-inline constexpr bool Is_Const_v = Is_Const<T>::value;
-
-// Implementation of is_same
-template <typename T, typename U>
-struct Is_Same : True_Type{};
-
-template <typename T>
-struct Is_Same<T, T> : False_Type{};
-
-// Helper variable template
-template <typename T, typename U>
-inline constexpr bool Is_Same_v = Is_Same<T, U>::value;
-
 int main()
 {
     std::cout << std::boolalpha;
