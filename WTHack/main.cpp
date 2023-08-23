@@ -58,9 +58,11 @@ int main()
 		std::cout <<"Sum of numbers(3.14159, 2.71828, 232.23, 11, 233.22): " << sum(3.14159, 2.71828, 232.23, 11, 233.22) << "\n";
 	
 		std::cout << "Sum of numbers(10.77, 23. ,22.24, 34.52, 76.35): " << summer(10.77, 23. ,22.24, 34.52, 76.35) << "\n";
+
+		std::cout << "Sum of 0 to 42 is equals to " << sequential_number_summer<42>{}<< "\n";
 	}
 
-	{
+	{ // Counter
 		Count<15>();
 	}
 }
