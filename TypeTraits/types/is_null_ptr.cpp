@@ -5,7 +5,7 @@ template <typename T>
 struct isNullPointer : std::is_same<std::nullptr_t, std::remove_cv_t<T>> {};
 
 template <typename T>
-inline constexpr bool isNullPointer_v = isNullPointer<T>::value;
+constexpr bool isNullPointer_v = isNullPointer<T>::value;
 
 int main(){
     std::cout << std::boolalpha << isNullPointer_v<decltype(nullptr)> << "\n" // true

@@ -9,7 +9,7 @@ template<class T>
 struct IsSame<T, T> : std::true_type {};
 
 template<typename T, typename U>
-inline constexpr bool IsSame_v = IsSame<T, U>::value;
+constexpr bool IsSame_v = IsSame<T, U>::value;
 
 int main()
 {

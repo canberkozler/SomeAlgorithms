@@ -9,7 +9,7 @@ struct IsFloatingPoint : std::integral_constant<bool,
 {};
 
 template <typename T>
-inline constexpr bool isFloatingPoint_v = IsFloatingPoint<T>::value;
+constexpr bool isFloatingPoint_v = IsFloatingPoint<T>::value;
 
 int main(){
     std::cout << std::boolalpha << isFloatingPoint_v<int> << "\n"; //false
