@@ -2,6 +2,7 @@
 #include <vector>
 #include <list>
 #include <algorithm>
+#include <random>
 
 template <typename C>
 void bubble_sort(C& container) {
@@ -17,13 +18,13 @@ void bubble_sort(C& container) {
     } while (swapped);
 }
 
-template <typename C>
-void bubble_sort_2(C& vec){
+template <typename C, typename Cmp = std::greater<>>
+void bubble_sort_2(C& vec, Cmp cp = Cmp{}){
     bool swapped;
     for (std::size_t i = 0; i < vec.size() - 1; i++) {
         swapped = false;
         for (std::size_t j = 0; j < vec.size() - i - 1; j++) {
-            if (vec[j] > vec[j + 1]) {
+            if (cp(vec[j], vec[j + 1])) {
                 std::swap(vec[j], vec[j + 1]);
                 swapped = true;
             }
@@ -79,6 +80,22 @@ int main() {
 
     std::cout << '\n';
     bubble_sort_2(vec2);
+
+    std::cout << "Sorted vector: ";
+    for (auto num : vec2)
+        std::cout << num << ' ';
+    
+    std::cout << double_new_line;
+
+    // Mix vector.
+    std::shuffle(vec2.begin(), vec2.end(), std::mt19937{std::random_device{}()});
+
+    std::cout << "BubbleSort2 original vector(Greater to less): ";
+    for (auto num : vec2)
+        std::cout << num << ' ';
+
+    std::cout << '\n';
+    bubble_sort_2(vec2, std::less{});
 
     std::cout << "Sorted vector: ";
     for (auto num : vec2)
