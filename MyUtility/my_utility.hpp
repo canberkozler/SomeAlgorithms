@@ -6,6 +6,8 @@
 #include <set>
 #include <forward_list>
 
+#define getValueCat(s) std::cout << "Value category of '" << #s << "' is " << Value_Category_Detector<decltype((s))>::p << "\n";
+
 class Irand {
 public:
 	Irand() = default;
@@ -129,5 +131,20 @@ std::ostream& variadic_print_v3(std::ostream& os, const T& t, const Args& ...res
     return os;
 }
 
+template<typename T>
+struct Value_Category_Detector
+{
+	static constexpr const char* p = "Pr Value";
+};
 
+template<typename T>
+struct Value_Category_Detector<T&>
+{
+	static constexpr const char* p = "L Value";
+};
 
+template<typename T>
+struct Value_Category_Detector<T&&>
+{
+	static constexpr const char* p = "X Value";
+};
