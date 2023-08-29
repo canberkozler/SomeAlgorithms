@@ -78,7 +78,7 @@ int main() {
         std::cout << num << ' ';
 
     std::cout << '\n';
-    bubble_sort(vec2);
+    bubble_sort_2(vec2);
 
     std::cout << "Sorted vector: ";
     for (auto num : vec2)
