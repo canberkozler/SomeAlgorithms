@@ -36,6 +36,10 @@ void operator"" _print(long double ld)
     std::cout << ld << '\n';
 }
 
+std::ostream& double_new_line(std::ostream& os){
+    return os << "\n\n";
+}
+
 int main(){
     {
         std::vector<std::pair<std::string, int>> myvec{{"ali", 23}, {"can", 22}, {"berk", 13}};
