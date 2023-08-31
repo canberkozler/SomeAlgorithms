@@ -1,6 +1,9 @@
 #include<iostream>
 #include<vector>
 #include<string>
+#include<string_view>
+#include<iterator>
+
 #include"spaceDeleter.h"
 
 template<typename T, typename U>
@@ -36,8 +39,20 @@ void operator"" _print(long double ld)
     std::cout << ld << '\n';
 }
 
+// Manipulator
 std::ostream& double_new_line(std::ostream& os){
     return os << "\n\n";
+}
+
+template<typename C>
+void println(std::string_view rem, const C& v){
+    std::cout << rem;
+    if constexpr (std::is_scalar<std::decay_t<decltype(v)>>::value)
+        std::cout << v;
+    else
+        for (auto e : v)
+            std::cout << e << ' ';
+    std::cout << '\n';
 }
 
 int main(){
@@ -65,5 +80,10 @@ int main(){
         "Hi, Github!"_print;
 
         88.9_print;
+    }
+    std::cout << "Apply double new line..."<<double_new_line;
+    {
+        std::vector<int> ivec{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; 
+        println("The vector contains :", ivec);
     }
 }
