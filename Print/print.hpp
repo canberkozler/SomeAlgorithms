@@ -111,3 +111,10 @@ void print_args_backwards(Ts... ts){
         3
     */
 }
+
+template<typename T, typename... Args>
+void enumerate_and_print(T f, Args... args){ //void enumerate_pack(auto f, auto... args); c++20
+    [&]<std::size_t... Idxs>(std::index_sequence<Idxs...>){
+        (f(Idxs, args), ...);
+    }(std::make_index_sequence<sizeof...(args)>{});
+}

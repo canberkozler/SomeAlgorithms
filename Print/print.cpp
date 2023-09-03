@@ -62,6 +62,13 @@ int main(){
     }
 
     { // print forwards and backwards.
-        print_args_backwards(1,2,"hello",4,5,"Github!");
+        print_args_backwards(1,2,"hello",4,5,"Github!\n");
+    }
+
+    { // enumarate parameters and print.
+        enumerate_and_print(
+        [](std::size_t i, auto arg){
+            std::cout << i << ": " << arg << "\n"; 
+        }, "hello", 33, "world", 156);
     }
 }
