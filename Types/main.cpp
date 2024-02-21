@@ -7,6 +7,8 @@
 #include "AbstractDataTypes/priority_queue.hpp"
 #include <random>
 
+#include"complex.hpp"
+
 int main(){
     // Pair
     auto x = MakePair(1.2,11);
@@ -119,12 +121,10 @@ int main(){
     std::uniform_int_distribution<int> dist;
 
     Priority_Queue<long> max_que;
-	for (int i = 0; i < 20; ++i)
-		max_que.push(dist(eng) % 10000);
+	  for (int i = 0; i < 20; ++i) max_que.push(dist(eng) % 10000);
 
     std::cout <<"Before pop max elem:\n";
-    for (auto lval: max_que.get_container())
-		std::cout << lval << " ";
+    for (auto lval: max_que.get_container()) std::cout << lval << " ";
     std::cout <<"\n";
 
     std::cout<< "Max Elem: " << max_que.top()<<"\n";
@@ -132,11 +132,24 @@ int main(){
     max_que.pop();
 
     std::cout <<"After pop max elem:\n";
-    for (auto lval: max_que.get_container())
-		std::cout << lval << " ";
+    for (auto lval: max_que.get_container()) std::cout << lval << " ";
     std::cout <<"\n\n";
 
     std::cout <<"Sort Container:\n";
-    for (auto lval: max_que.get_container_sorted())
-		std::cout << lval << " ";
+    for (auto lval: max_que.get_container_sorted()) std::cout << lval << " ";
+
+    std::cout <<"\n\n";
+    // Complex Numbers
+    Complex cmplxNumber{4.0,2.1};
+    Complex cmplxNumber2{11.6,8.23};
+
+    cmplxNumber+=cmplxNumber2;
+
+    std::cout << "Test 1: "<< cmplxNumber << "\n";
+
+    cmplxNumber*=cmplxNumber2;
+
+    std::cout << "Test 2: "<< cmplxNumber << "\n";
+
+    std::cout << "Test 3: " << cmplxNumber.get_conjugate() << "\n";
 }
